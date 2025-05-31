@@ -34,7 +34,7 @@ export default function AboutUs() {
         <div className="text-center">
           <h3 className="text-2xl font-semibold text-blue-900 mb-4">Nossos Diferenciais</h3>
           <ul className="text-gray-700 space-y-2">
-            <li>Mais de 10 anos de experiência no mercado</li>
+            <li>20 anos de experiência no mercado</li>
             <li>Equipe especializada em finanças e direito tributário</li>
             <li>Soluções personalizadas para cada cliente</li>
           </ul>
@@ -43,4 +43,3 @@ export default function AboutUs() {
     </section>
   )
 }
-
