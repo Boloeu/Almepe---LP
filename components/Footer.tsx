@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Phone, Mail, MapPin, Instagram } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -17,20 +17,7 @@ export default function Footer() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <p className="text-sm text-gray-400 text-center md:text-left mb-4">
-              Evite dores de cabeça. Vem pra Almepe!
-            </p>
-            <div className="flex justify-center md:justify-start">
-              <a
-                href="https://www.instagram.com/almepe_contabilidade"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Siga-nos no Instagram"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-            </div>
+            <p className="text-sm text-gray-400 text-center md:text-left">Evite dores de cabeça. Vem pra Almepe!</p>
           </div>
 
           <div>
@@ -80,7 +67,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-gray-400">
                 <Phone className="w-4 h-4" />
-                <span>(11)56700780</span>
+                <span>(11) 5670-0760</span>
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Mail className="w-4 h-4" />
@@ -88,7 +75,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <MapPin className="w-4 h-4" />
-                <span>Rua Bacaetava, 191. Sala 907 São Paulo SP</span>
+                <span>São Paulo, SP</span>
               </li>
             </ul>
           </div>
