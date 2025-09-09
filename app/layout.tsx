@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Contabilidade Digital | Almepe",
   description:
     "Especialistas em contabilidade digital para empresas e pessoas físicas. Atendimento ágil, seguro e eficiente.",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
