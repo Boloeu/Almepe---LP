@@ -7,13 +7,6 @@ import Link from "next/link"
 
 const slides = [
   {
-    title: "IR 2025",
-    subtitle: "Declaração de Imposto de Renda para Pessoas Físicas e Jurídicas",
-    cta: "Saiba mais",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20IR%202025",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&h=600&auto=format&fit=crop",
-  },
-  {
     title: "Contabilidade Digital",
     subtitle: "Gestão contábil, fiscal, de pessoas e societária para sua empresa",
     cta: "Saiba mais",
@@ -65,11 +58,7 @@ export default function HeroSection() {
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">{slide.title}</h1>
             {slide.subtitle && <p className="text-xl md:text-2xl mb-8 text-center max-w-2xl">{slide.subtitle}</p>}
             <Link href={slide.link} target="_blank" rel="noopener noreferrer">
-              <Button
-                className={`text-white text-lg px-8 py-3 ${slide.title === "IR 2025" ? "bg-red-600 hover:bg-red-700" : "bg-blue-900 hover:bg-blue-800"}`}
-              >
-                {slide.cta}
-              </Button>
+              <Button className="bg-blue-900 hover:bg-blue-800 text-white text-lg px-8 py-3">{slide.cta}</Button>
             </Link>
           </div>
         </div>
