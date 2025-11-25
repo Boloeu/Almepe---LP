@@ -7,23 +7,11 @@ import Link from "next/link"
 
 const slides = [
   {
-    title: "ALMEPE INOVA",
-    subtitle: "2ª Edição",
-    description: "O Impacto da Reforma Tributária",
-    details: "25/11/25 às 9h | Av. Jurubatuba, 460",
-    badge: "EVENTO GRATUITO",
-    cta: "Inscreva-se Já",
-    link: "https://www.sympla.com.br/evento/almepe-inova-2-edicao-omie-o-impacto-da-reforma-tributaria-sao-paulo-sp/3143010",
-    image: "/evento-almepe-inova.png",
-    isEvent: true,
-  },
-  {
     title: "Contabilidade Digital",
     subtitle: "Gestão contábil, fiscal, de pessoas e societária para sua empresa",
     cta: "Saiba mais",
     link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Contabilidade%20Digital",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&h=600&auto=format&fit=crop",
-    isEvent: false,
   },
   {
     title: "Financeiro Digital",
@@ -31,7 +19,6 @@ const slides = [
     cta: "Conheça nossos serviços",
     link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Financeiro%20Digital",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&h=600&auto=format&fit=crop",
-    isEvent: false,
   },
   {
     title: "Consultoria",
@@ -39,7 +26,6 @@ const slides = [
     cta: "Fale com um Especialista",
     link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Consultoria",
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&h=600&auto=format&fit=crop",
-    isEvent: false,
   },
 ]
 
@@ -68,36 +54,13 @@ export default function HeroSection() {
             backgroundPosition: "center",
           }}
         >
-          {slide.isEvent ? (
-            // Layout especial para o slide do evento - texto à direita
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-end p-8">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 max-w-md mr-0 md:mr-12">
-                {slide.badge && (
-                  <span className="inline-block bg-green-500 text-white text-sm px-4 py-1 rounded-full mb-4 font-semibold">
-                    {slide.badge}
-                  </span>
-                )}
-                <h1 className="text-3xl md:text-4xl font-bold mb-2 text-blue-900">{slide.title}</h1>
-                {slide.subtitle && <p className="text-xl font-semibold text-red-600 mb-2">{slide.subtitle}</p>}
-                {slide.description && <p className="text-lg text-gray-700 mb-4">{slide.description}</p>}
-                {slide.details && <p className="text-sm text-gray-600 mb-6">{slide.details}</p>}
-                <Link href={slide.link} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                    {slide.cta}
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          ) : (
-            // Layout padrão para outros slides - texto centralizado
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-8">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">{slide.title}</h1>
-              {slide.subtitle && <p className="text-xl md:text-2xl mb-8 text-center max-w-2xl">{slide.subtitle}</p>}
-              <Link href={slide.link} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-blue-900 hover:bg-blue-800 text-white text-lg px-8 py-3">{slide.cta}</Button>
-              </Link>
-            </div>
-          )}
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-8">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">{slide.title}</h1>
+            {slide.subtitle && <p className="text-xl md:text-2xl mb-8 text-center max-w-2xl">{slide.subtitle}</p>}
+            <Link href={slide.link} target="_blank" rel="noopener noreferrer">
+              <Button className="bg-blue-900 hover:bg-blue-800 text-white text-lg px-8 py-3">{slide.cta}</Button>
+            </Link>
+          </div>
         </div>
       ))}
       <button
