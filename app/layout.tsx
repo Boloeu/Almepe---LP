@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -26,8 +26,8 @@ export default function RootLayout({
           content="Especialistas em contabilidade digital para empresas e pessoas físicas. Atendimento ágil, seguro e eficiente."
         />
         <link rel="icon" href="/favicon.png" type="image/png" />
-        
-        {/* Google tag (gtag.js) */}
+
+        {/* Google tag (gtag.js) - Google Ads */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11105298288"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -36,6 +36,18 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-11105298288');
+            `,
+          }}
+        />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPVCDH1WV5"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MPVCDH1WV5');
             `,
           }}
         />
