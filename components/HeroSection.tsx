@@ -10,21 +10,21 @@ const slides = [
     title: "Contabilidade Digital",
     subtitle: "Gestão contábil, fiscal, de pessoas e societária para sua empresa",
     cta: "Saiba mais",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Contabilidade%20Digital",
+    link: "/redirect-hero-contabilidade",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&h=600&auto=format&fit=crop",
   },
   {
     title: "Financeiro Digital",
     subtitle: "Gestão financeira completa para otimizar seus recursos",
     cta: "Conheça nossos serviços",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Financeiro%20Digital",
+    link: "/redirect-hero-financeiro",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&h=600&auto=format&fit=crop",
   },
   {
     title: "Consultoria",
     subtitle: "Soluções personalizadas para o crescimento do seu negócio",
     cta: "Fale com um Especialista",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Consultoria",
+    link: "/redirect-hero-especialista",
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&h=600&auto=format&fit=crop",
   },
 ]
@@ -57,7 +57,7 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">{slide.title}</h1>
             {slide.subtitle && <p className="text-xl md:text-2xl mb-8 text-center max-w-2xl">{slide.subtitle}</p>}
-            <Link href={slide.link} target="_blank" rel="noopener noreferrer">
+            <Link href={slide.link}>
               <Button className="bg-blue-900 hover:bg-blue-800 text-white text-lg px-8 py-3">{slide.cta}</Button>
             </Link>
           </div>

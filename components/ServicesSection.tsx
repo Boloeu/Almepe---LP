@@ -18,7 +18,7 @@ const contabilidadeDigitalServices = [
       "Declarações e obrigações periódicas",
     ],
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&h=400&auto=format&fit=crop",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Gestão%20Contábil",
+    link: "/redirect-servico-contabil",
   },
   {
     title: "Gestão Fiscal",
@@ -32,7 +32,7 @@ const contabilidadeDigitalServices = [
       "Escolha da melhor forma de tributação",
     ],
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&h=400&auto=format&fit=crop",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Gestão%20Fiscal",
+    link: "/redirect-servico-fiscal",
   },
   {
     title: "Gestão de Pessoas",
@@ -45,7 +45,7 @@ const contabilidadeDigitalServices = [
       "Rotinas de admissão, demissão, férias e afastamentos",
     ],
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&h=400&auto=format&fit=crop",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Gestão%20de%20Pessoas",
+    link: "/redirect-servico-pessoal",
   },
   {
     title: "Gestão Societária",
@@ -59,12 +59,12 @@ const contabilidadeDigitalServices = [
       "Contratos de acordo entre sócios",
     ],
     image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&h=400&auto=format&fit=crop",
-    link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Gestão%20Societária",
+    link: "/redirect-servico-societario",
   },
 ]
 
 const financeiroDigitalService = {
-  title: "Gestão Financeira",
+  title: "Gestão Financeira (BPO)",
   description:
     "A Almepe organiza e cuida da gestão das contas a pagar e a receber da sua empresa, para que você possa se concentrar em áreas estratégicas. Com a terceirização do seu financeiro, vocês receberão informações precisas e estratégicas para gestão da sua empresa, além de obter uma grande economia nos custos.",
   items: [
@@ -77,7 +77,7 @@ const financeiroDigitalService = {
     "Consultoria em Gestão",
   ],
   image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&h=400&auto=format&fit=crop",
-  link: "https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20Gestão%20Financeira",
+  link: "/redirect-servico-bpo",
 }
 
 export default function ServicesSection() {
@@ -147,7 +147,7 @@ export default function ServicesSection() {
                     </li>
                   ))}
                 </ul>
-                <Link href={currentServiceData.link} target="_blank" rel="noopener noreferrer">
+                <Link href={currentServiceData.link}>
                   <Button className="w-full bg-blue-900 text-white hover:bg-blue-800">Saiba Mais</Button>
                 </Link>
               </div>

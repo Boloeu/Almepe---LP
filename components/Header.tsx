@@ -9,7 +9,7 @@ export default function Header() {
         <div className="w-12 h-12">
           <Link href="/">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/almepe_COLORIDO_icone-bWYmpUCW9jKbd13zckqL8xbs0LMZKz.png"
+              src="/images/almepe-colorido-icone.png"
               alt="Almepe Logo"
               width={48}
               height={48}
@@ -28,11 +28,7 @@ export default function Header() {
             Contato
           </a>
         </nav>
-        <Link
-          href="https://wa.me/551156700780?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Almepe"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/redirect-fale-conosco">
           <Button className="bg-blue-900 text-white hover:bg-blue-800">Fale Conosco</Button>
         </Link>
       </div>
