@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 
 export default function RedirectFaleConosco() {
@@ -26,6 +27,10 @@ export default function RedirectFaleConosco() {
             Ir para o WhatsApp
           </Button>
         </Link>
+        {/* Event snippet for Visualização de página conversion page */}
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`gtag('event', 'conversion', {'send_to': 'AW-11105298288/KkxHCPCB5qwZEPDOta8p'});`}
+        </Script>
       </div>
     </div>
   )
