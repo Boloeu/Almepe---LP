@@ -1,21 +1,27 @@
 import Header from "@/components/Header"
 import HeroSection from "@/components/HeroSection"
-import AboutUs from "@/components/AboutUs"
+import NumbersSection from "@/components/NumbersSection"
 import ServicesSection from "@/components/ServicesSection"
-import InstagramSection from "@/components/InstagramSection"
-import Newsletter from "@/components/Newsletter"
+import MethodologySection from "@/components/MethodologySection"
+import DiagnosticQuiz from "@/components/DiagnosticQuiz"
+import FAQSection from "@/components/FAQSection"
 import Footer from "@/components/Footer"
+import WhatsAppButton from "@/components/WhatsAppButton"
+import LeadPopup from "@/components/LeadPopup"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <AboutUs />
+      <NumbersSection />
       <ServicesSection />
-      <InstagramSection />
-      <Newsletter />
+      <MethodologySection />
+      <DiagnosticQuiz />
+      <FAQSection />
       <Footer />
+      <WhatsAppButton />
+      <LeadPopup />
     </main>
   )
 }
