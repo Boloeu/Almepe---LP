@@ -19,7 +19,6 @@ const services = [
     description:
       "Escrituracao, demonstracoes contabeis e relatorios para auxiliar nas tomadas de decisoes.",
     link: "/redirect-servico-contabil",
-    span: "col-span-1 md:col-span-2",
   },
   {
     icon: Receipt,
@@ -27,7 +26,6 @@ const services = [
     description:
       "Escolha da melhor tributacao, entrega de obrigacoes acessorias e calculo de tributos.",
     link: "/redirect-servico-fiscal",
-    span: "col-span-1",
   },
   {
     icon: Users,
@@ -35,7 +33,6 @@ const services = [
     description:
       "Folha de pagamento, admissoes, demissoes, ferias e todas as obrigacoes trabalhistas.",
     link: "/redirect-servico-pessoal",
-    span: "col-span-1",
   },
   {
     icon: Landmark,
@@ -43,7 +40,6 @@ const services = [
     description:
       "Registros, contratos sociais, regularizacao e planejamento para inicio de atividades.",
     link: "/redirect-servico-societario",
-    span: "col-span-1",
   },
   {
     icon: Wallet,
@@ -51,16 +47,16 @@ const services = [
     description:
       "Contas a pagar e receber, conciliacao bancaria, notas fiscais e relatorios financeiros.",
     link: "/redirect-servico-bpo",
-    span: "col-span-1 md:col-span-2",
   },
 ]
 
 export default function ServicesSection() {
-  const { ref, isInView } = useInView(0.1)
+  const { ref, isInView } = useInView(0.05)
 
   return (
     <section id="servicos" ref={ref} className="py-20 bg-secondary">
       <div className="mx-auto max-w-7xl px-4">
+        {/* Section header */}
         <div className="text-center mb-14">
           <span className="text-xs font-semibold text-accent uppercase tracking-wider">
             Nossos Servicos
@@ -74,43 +70,79 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Horizontal row of cards with diagonal dividers */}
+        <div className="relative flex flex-col lg:flex-row lg:min-h-[65vh]">
           {services.map((service, i) => (
             <div
               key={service.title}
-              className={`${service.span} group relative rounded-2xl bg-card border border-border p-6 md:p-8 hover:border-accent/50 hover:shadow-lg transition-all duration-300 ${
+              className={`relative flex-1 transition-all duration-500 ${
                 isInView ? "animate-fade-in-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${i * 100}ms` }}
+              style={{ animationDelay: `${i * 80}ms` }}
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
-                  <service.icon className="h-6 w-6" />
+              {/* Diagonal divider -- between cards on large screens */}
+              {i > 0 && (
+                <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-px z-10">
+                  <svg
+                    className="absolute -left-3 top-0 h-full w-6"
+                    viewBox="0 0 24 100"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="18"
+                      y1="0"
+                      x2="6"
+                      y2="100"
+                      stroke="hsl(var(--border))"
+                      strokeWidth="1"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  </svg>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-bold text-foreground">
+              )}
+
+              {/* Horizontal divider on mobile */}
+              {i > 0 && (
+                <div className="lg:hidden h-px bg-border my-1" />
+              )}
+
+              {/* Card content with backdrop-blur */}
+              <div className="group relative h-full flex flex-col justify-between p-6 lg:p-8 rounded-2xl lg:rounded-none overflow-hidden">
+                {/* Blur layer */}
+                <div className="absolute inset-0 bg-card/70 backdrop-blur-xl -z-[1]" />
+
+                <div>
+                  <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300 mb-5">
+                    <service.icon className="h-7 w-7" />
+                  </div>
+
+                  <h3 className="text-lg font-bold text-foreground mb-2">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                  <Link href={service.link} className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-accent hover:underline">
-                    Saiba mais
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
                 </div>
+
+                <Link
+                  href={service.link}
+                  className="inline-flex items-center gap-1 mt-6 text-sm font-semibold text-accent hover:underline"
+                >
+                  Saiba mais
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <Link href="/redirect-fale-conosco">
             <Button
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-almepe-red-dark font-semibold px-8"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-8"
             >
               Solicitar Proposta
               <ArrowRight className="ml-2 h-4 w-4" />

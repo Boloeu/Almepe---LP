@@ -1,12 +1,62 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { useInView } from "@/hooks/use-in-view"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BarChart3, Shield, Users } from "lucide-react"
+import {
+  ArrowRight,
+  Shield,
+  Users,
+  BarChart3,
+  FileCheck,
+  Clock,
+  AlertTriangle,
+  CheckCircle2,
+} from "lucide-react"
+
+const checklistItems = [
+  { label: "Rendimentos tributaveis", done: true },
+  { label: "Informes bancarios", done: true },
+  { label: "Despesas dedutiveis", done: false },
+  { label: "Dependentes atualizados", done: false },
+]
 
 export default function HeroSection() {
   const { ref, isInView } = useInView(0.15)
+  const [checkedItems, setCheckedItems] = useState<boolean[]>(
+    checklistItems.map((item) => item.done)
+  )
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, mins: 0 })
+
+  // Countdown to May 30, 2026 deadline
+  useEffect(() => {
+    function calcRemaining() {
+      const deadline = new Date("2026-05-30T23:59:59-03:00").getTime()
+      const now = Date.now()
+      const diff = Math.max(0, deadline - now)
+      return {
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        mins: Math.floor((diff / (1000 * 60)) % 60),
+      }
+    }
+    setCountdown(calcRemaining())
+    const id = setInterval(() => setCountdown(calcRemaining()), 60000)
+    return () => clearInterval(id)
+  }, [])
+
+  const toggleItem = (i: number) => {
+    setCheckedItems((prev) => {
+      const next = [...prev]
+      next[i] = !next[i]
+      return next
+    })
+  }
+
+  const progress = Math.round(
+    (checkedItems.filter(Boolean).length / checkedItems.length) * 100
+  )
 
   return (
     <section
@@ -14,12 +64,15 @@ export default function HeroSection() {
       ref={ref}
       className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden"
     >
-      {/* Subtle background pattern */}
+      {/* Subtle dot grid */}
       <div className="absolute inset-0 bg-background">
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-        }} />
+        <div
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 w-full">
@@ -30,17 +83,17 @@ export default function HeroSection() {
               isInView ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 mb-6">
-              <span className="h-2 w-2 rounded-full bg-accent" />
-              <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 rounded-full bg-highlight/10 px-4 py-1.5 mb-6">
+              <span className="h-2 w-2 rounded-full bg-highlight" />
+              <span className="text-xs font-semibold text-highlight uppercase tracking-wider">
                 Contabilidade Digital
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-balance text-foreground">
               Sua empresa merece uma{" "}
-              <span className="text-accent">contabilidade</span>{" "}
-              que entrega resultados
+              <span className="text-accent">contabilidade</span> que entrega
+              resultados
             </h1>
 
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -52,7 +105,7 @@ export default function HeroSection() {
               <Link href="/redirect-fale-conosco">
                 <Button
                   size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-almepe-red-dark font-semibold px-8 text-base"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-8 text-base"
                 >
                   Falar com Especialista
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -86,69 +139,131 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: 3D Placeholder / Visual element */}
+          {/* Right: IR 2026 interactive card */}
           <div
             className={`flex-1 w-full max-w-lg lg:max-w-none transition-all duration-700 delay-200 ${
               isInView ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Abstract visual representation */}
-              <div className="absolute inset-0 rounded-3xl bg-card border border-border shadow-2xl overflow-hidden">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 gap-6">
-                  {/* Dashboard mock */}
-                  <div className="w-full space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="h-3 w-24 rounded-full bg-muted" />
-                      <div className="h-3 w-16 rounded-full bg-accent/20" />
+            <div className="relative max-w-md mx-auto">
+              <div className="rounded-2xl bg-card border border-border shadow-2xl overflow-hidden">
+                {/* Card header */}
+                <div className="bg-accent px-6 py-5 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-accent-foreground/15">
+                      <FileCheck className="h-5 w-5 text-accent-foreground" />
                     </div>
-
-                    {/* Chart bars */}
-                    <div className="flex items-end gap-2 h-32 pt-4">
-                      {[40, 65, 50, 80, 60, 90, 75, 95, 70, 85, 92, 88].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-t-sm transition-all duration-500"
-                          style={{
-                            height: `${h}%`,
-                            backgroundColor: i >= 8 ? 'hsl(var(--accent))' : 'hsl(var(--muted))',
-                            transitionDelay: `${i * 50}ms`,
-                          }}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Stats row */}
-                    <div className="grid grid-cols-3 gap-3 pt-2">
-                      {[
-                        { label: "Receita", value: "+23%" },
-                        { label: "Economia", value: "R$45k" },
-                        { label: "Satisfacao", value: "98%" },
-                      ].map((stat) => (
-                        <div
-                          key={stat.label}
-                          className="rounded-lg bg-secondary p-3 text-center"
-                        >
-                          <p className="text-xs text-muted-foreground">{stat.label}</p>
-                          <p className="text-sm font-bold text-foreground">{stat.value}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Bottom row */}
-                    <div className="flex items-center gap-3 pt-2">
-                      <div className="h-10 flex-1 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <span className="text-xs font-semibold text-accent">Empresa Saudavel</span>
-                      </div>
-                      <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
-                        <BarChart3 className="h-4 w-4 text-muted-foreground" />
-                      </div>
+                    <div>
+                      <h3 className="text-base font-bold text-accent-foreground">
+                        Imposto de Renda 2026
+                      </h3>
+                      <p className="text-xs text-accent-foreground/70">
+                        Declaracao IRPF
+                      </p>
                     </div>
                   </div>
+                  <div className="flex items-center gap-1.5 rounded-full bg-highlight/20 px-2.5 py-1">
+                    <AlertTriangle className="h-3 w-3 text-highlight" />
+                    <span className="text-[10px] font-bold text-highlight uppercase">
+                      Prazo aberto
+                    </span>
+                  </div>
+                </div>
+
+                {/* Countdown */}
+                <div className="px-6 py-4 border-b border-border">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                      Tempo restante para declarar
+                    </span>
+                  </div>
+                  <div className="flex gap-3">
+                    {[
+                      { value: countdown.days, label: "dias" },
+                      { value: countdown.hours, label: "horas" },
+                      { value: countdown.mins, label: "min" },
+                    ].map((unit) => (
+                      <div
+                        key={unit.label}
+                        className="flex-1 rounded-xl bg-secondary text-center py-3"
+                      >
+                        <p className="text-2xl font-bold font-mono text-foreground">
+                          {unit.value}
+                        </p>
+                        <p className="text-[10px] font-medium text-muted-foreground uppercase">
+                          {unit.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Checklist */}
+                <div className="px-6 py-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                      Checklist de documentos
+                    </span>
+                    <span className="text-xs font-bold text-accent">
+                      {progress}%
+                    </span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-muted overflow-hidden mb-4">
+                    <div
+                      className="h-full rounded-full bg-accent transition-all duration-500"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    {checklistItems.map((item, i) => (
+                      <button
+                        key={item.label}
+                        onClick={() => toggleItem(i)}
+                        className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors ${
+                          checkedItems[i]
+                            ? "bg-accent/8 text-foreground"
+                            : "bg-secondary text-muted-foreground hover:bg-secondary/80"
+                        }`}
+                      >
+                        <span
+                          className={`flex-shrink-0 flex items-center justify-center h-5 w-5 rounded-md border-2 transition-colors ${
+                            checkedItems[i]
+                              ? "border-accent bg-accent"
+                              : "border-muted-foreground/30"
+                          }`}
+                        >
+                          {checkedItems[i] && (
+                            <CheckCircle2 className="h-3 w-3 text-accent-foreground" />
+                          )}
+                        </span>
+                        <span
+                          className={
+                            checkedItems[i]
+                              ? "line-through text-muted-foreground"
+                              : ""
+                          }
+                        >
+                          {item.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="px-6 pb-5">
+                  <Link href="/redirect-hero-contabilidade">
+                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+                      Declarar com a Almepe
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
-              {/* Decorative corner accent */}
+              {/* Decorative corners */}
               <div className="absolute -top-3 -right-3 h-20 w-20 rounded-2xl bg-accent/10 -z-10" />
               <div className="absolute -bottom-3 -left-3 h-16 w-16 rounded-2xl bg-primary/5 -z-10" />
             </div>

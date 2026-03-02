@@ -35,9 +35,9 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center gap-8">
+        {/* Logo -- flush left */}
+        <Link href="/" className="flex items-center gap-2 mr-auto">
           <Image
             src="/images/almepe-colorido-icone.png"
             alt="Almepe Logo"
@@ -71,23 +71,30 @@ export default function Header() {
               className="rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               aria-label="Alternar tema"
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </button>
           )}
 
           <Link href="/redirect-fale-conosco" className="hidden md:block">
-            <Button className="bg-accent text-accent-foreground hover:bg-almepe-red-dark font-semibold px-5">
+            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-5">
               Fale Conosco
             </Button>
           </Link>
 
-          {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
             aria-label="Menu"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>
@@ -111,7 +118,7 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
               className="mt-2"
             >
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-almepe-red-dark font-semibold">
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
                 Fale Conosco
               </Button>
             </Link>
