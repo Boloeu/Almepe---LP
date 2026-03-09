@@ -54,8 +54,8 @@ export default function LeadPopup() {
         </button>
 
         <div className="text-center">
-          <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-accent/10 mb-5">
-            <span className="text-2xl font-bold text-accent">%</span>
+          <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-highlight/10 mb-5">
+            <span className="text-2xl font-bold text-highlight">%</span>
           </div>
 
           <h3 className="text-xl font-bold text-foreground mb-2">
@@ -69,7 +69,7 @@ export default function LeadPopup() {
           <Link href="/redirect-fale-conosco" onClick={close}>
             <Button
               size="lg"
-              className="w-full bg-accent text-accent-foreground hover:bg-almepe-red-dark font-semibold"
+              className="w-full bg-primary text-primary-foreground hover:bg-accent font-semibold"
             >
               Quero meu Diagnostico
               <ArrowRight className="ml-2 h-4 w-4" />

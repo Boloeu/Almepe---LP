@@ -28,7 +28,7 @@ export default function Footer() {
                 href="https://www.instagram.com/almepe_contabilidade/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-accent text-primary-foreground hover:text-accent-foreground transition-colors"
+                className="flex items-center justify-center h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground transition-colors"
               >
                 <Instagram className="h-4 w-4" />
               </Link>
@@ -76,15 +76,15 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-accent flex-shrink-0" />
+                <Phone className="h-4 w-4 text-highlight flex-shrink-0" />
                 <span className="text-sm text-primary-foreground/60">(11) 5670-0760</span>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-accent flex-shrink-0" />
+                <Mail className="h-4 w-4 text-highlight flex-shrink-0" />
                 <span className="text-sm text-primary-foreground/60">Almepe@almepe.com.br</span>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                <MapPin className="h-4 w-4 text-highlight flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-primary-foreground/60">Sao Paulo, SP</span>
               </li>
             </ul>
@@ -97,7 +97,7 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 rounded-lg bg-primary-foreground/5 p-3">
-                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-accent/20 text-accent text-xs font-bold">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-highlight/20 text-highlight text-xs font-bold">
                   CRC
                 </div>
                 <span className="text-xs text-primary-foreground/60">
@@ -105,7 +105,7 @@ export default function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-2 rounded-lg bg-primary-foreground/5 p-3">
-                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-accent/20 text-accent text-xs font-bold">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-highlight/20 text-highlight text-xs font-bold">
                   ISO
                 </div>
                 <span className="text-xs text-primary-foreground/60">

@@ -53,7 +53,7 @@ export default function NumbersSection() {
               }`}
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <stat.icon className="h-8 w-8 mb-3 text-accent" />
+              <stat.icon className="h-8 w-8 mb-3 text-highlight" />
               <p className="text-3xl md:text-4xl font-bold font-mono">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} started={isInView} />
               </p>

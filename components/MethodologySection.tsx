@@ -37,7 +37,7 @@ export default function MethodologySection() {
     <section id="metodologia" ref={ref} className="py-20 bg-background">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center mb-14">
-          <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
             Nossa Metodologia
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
@@ -63,15 +63,15 @@ export default function MethodologySection() {
               >
                 {/* Step number badge */}
                 <div className="relative z-10 mb-4">
-                  <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-card border border-border shadow-sm group-hover:border-accent group-hover:shadow-md transition-all duration-300">
-                    <step.icon className="h-7 w-7 text-muted-foreground group-hover:text-accent transition-colors" />
+                  <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-card border border-border shadow-sm group-hover:border-primary group-hover:shadow-md transition-all duration-300">
+                    <step.icon className="h-7 w-7 text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
-                  <span className="absolute -top-2 -right-2 flex items-center justify-center h-6 w-6 rounded-full bg-accent text-accent-foreground text-xs font-bold">
+                  <span className="absolute -top-2 -right-2 flex items-center justify-center h-6 w-6 rounded-full bg-primary text-primary-foreground text-xs font-bold">
                     {i + 1}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors">
+                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-xs">

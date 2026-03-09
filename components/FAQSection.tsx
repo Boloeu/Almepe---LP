@@ -52,12 +52,12 @@ function AccordionItem({
         onClick={onToggle}
         className="flex items-center justify-between w-full py-5 text-left group"
       >
-        <span className="text-base font-semibold text-foreground group-hover:text-accent transition-colors pr-4">
+        <span className="text-base font-semibold text-foreground group-hover:text-primary transition-colors pr-4">
           {faq.question}
         </span>
         <ChevronDown
           className={`h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform duration-300 ${
-            isOpen ? "rotate-180 text-accent" : ""
+            isOpen ? "rotate-180 text-primary" : ""
           }`}
         />
       </button>
@@ -86,7 +86,7 @@ export default function FAQSection() {
             isInView ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
             FAQ
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
