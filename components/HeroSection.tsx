@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { useInView } from "@/hooks/use-in-view"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
@@ -15,12 +16,22 @@ import {
   AlertTriangle,
 } from "lucide-react"
 
+const heroImages = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%201-9e5oIQdEAgkZE6fsm7jLUBDLg1cfCd.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%202-W1aSq6jaQ0Csg0Wc4LfZTb42h1KgV7.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%203-mblVnQqwtt7eecTwpQF83lnjMXAzbn.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%204-QaTPX2wygoj0rTzMH0EMvqoBDhbees.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%205-rRKX977QrZ63hwbELpEcBtwIG8hwWs.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%206-WDrJICw0KZo38gogonVEDuKZEVRv3P.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%207-eB6CrQzZwOgyXMhTljBMxFB8Asty3Z.jpg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%208-INwcUvftHqOlolt6QwSKKLcekPUDsf.jpg",
+]
+
 export default function HeroSection() {
   const { ref, isInView } = useInView(0.15)
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, mins: 0 })
   const [checkedItems, setCheckedItems] = useState<number[]>([])
 
-  // Countdown to May 30, 2026 deadline
   useEffect(() => {
     function calcRemaining() {
       const deadline = new Date("2026-05-30T23:59:59-03:00").getTime()
@@ -54,15 +65,31 @@ export default function HeroSection() {
     <section
       id="inicio"
       ref={ref}
-      className="relative min-h-screen flex items-center pt-20 pb-16 bg-gradient-to-br from-background via-secondary/30 to-background overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-highlight/5 rounded-full blur-3xl" />
+      {/* Background Marquee Images */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="flex animate-marquee">
+          {[...heroImages, ...heroImages].map((src, i) => (
+            <div
+              key={i}
+              className="relative flex-shrink-0 w-[400px] h-screen"
+            >
+              <Image
+                src={src}
+                alt=""
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          ))}
+        </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-navy-500/70 backdrop-blur-sm" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 w-full">
+      <div className="relative mx-auto max-w-7xl px-4 w-full z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text content */}
           <div
@@ -70,20 +97,20 @@ export default function HeroSection() {
               isInView ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 mb-6">
               <span className="h-2 w-2 rounded-full bg-highlight animate-pulse" />
-              <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+              <span className="text-xs font-semibold text-white uppercase tracking-wider">
                 Contabilidade Digital
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-balance text-foreground">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white">
               Sua empresa merece uma{" "}
               <span className="text-highlight">contabilidade</span> que entrega
               resultados
             </h1>
 
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="mt-6 text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
               Gestao contabil, fiscal, de pessoas e financeira com atendimento
               agil, seguro e eficiente. Mais de 500 empresas confiam na Almepe.
             </p>
@@ -92,7 +119,7 @@ export default function HeroSection() {
               <Link href="/redirect-fale-conosco">
                 <Button
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-accent font-semibold px-8 text-base"
+                  className="bg-highlight text-white hover:bg-highlight/90 font-semibold px-8 text-base"
                 >
                   Falar com Especialista
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -102,7 +129,7 @@ export default function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="font-semibold px-8 text-base"
+                  className="font-semibold px-8 text-base border-white/30 text-white hover:bg-white/10"
                 >
                   Conhecer Servicos
                 </Button>
@@ -111,15 +138,15 @@ export default function HeroSection() {
 
             {/* Trust badges */}
             <div className="mt-10 flex flex-wrap items-center gap-6 justify-center lg:justify-start">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-white/80">
                 <Shield className="h-4 w-4 text-highlight" />
                 <span className="text-sm">CRC Ativo</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-white/80">
                 <Users className="h-4 w-4 text-highlight" />
                 <span className="text-sm">+500 Clientes</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-white/80">
                 <BarChart3 className="h-4 w-4 text-highlight" />
                 <span className="text-sm">+20 Anos</span>
               </div>
@@ -133,7 +160,7 @@ export default function HeroSection() {
             }`}
           >
             <div className="relative">
-              <div className="rounded-2xl bg-card border border-border overflow-hidden shadow-xl">
+              <div className="rounded-2xl bg-card border border-border overflow-hidden shadow-2xl">
                 {/* Card header with urgency badge */}
                 <div className="bg-gradient-to-r from-primary to-accent px-6 py-5">
                   <div className="flex items-center justify-between">
@@ -237,7 +264,7 @@ export default function HeroSection() {
               </div>
 
               {/* Decorative glow */}
-              <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl -z-10" />
+              <div className="absolute -inset-4 rounded-3xl bg-highlight/20 blur-2xl -z-10" />
             </div>
           </div>
         </div>
