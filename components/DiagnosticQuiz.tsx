@@ -264,7 +264,7 @@ export default function DiagnosticQuiz() {
               {/* Connection to Almepe Services */}
               <div className="bg-primary/5 rounded-xl p-5 mb-6 border border-primary/20">
                 <p className="text-sm text-foreground leading-relaxed">
-                  <span className="font-semibold">A Almepe</span> possui mais de <span className="font-semibold">37 anos</span> de 
+                  <span className="font-semibold">A Almepe</span> possui mais de <span className="font-semibold">20 anos</span> de 
                   experiencia em <span className="font-semibold">{diagnostic.recommendedService}</span> para empresas do seu porte. 
                   Nossa equipe de especialistas esta pronta para criar um plano personalizado que pode resultar em economia 
                   de <span className="font-semibold text-highlight">{diagnostic.savings}</span> para o seu negocio.

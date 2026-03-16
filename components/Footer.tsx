@@ -20,7 +20,7 @@ export default function Footer() {
               <span className="font-mono text-lg font-bold">Almepe</span>
             </div>
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
-              Contabilidade digital que entrega resultados. Mais de 15 anos
+              Contabilidade digital que entrega resultados. Mais de 20 anos
               transformando a gestao de empresas em Sao Paulo.
             </p>
             <div className="flex items-center gap-3 mt-5">
