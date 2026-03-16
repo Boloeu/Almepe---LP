@@ -20,7 +20,7 @@ const services = [
     description:
       "Escrituracao, demonstracoes contabeis e relatorios para auxiliar nas tomadas de decisoes.",
     link: "/redirect-servico-contabil",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%203-mblVnQqwtt7eecTwpQF83lnjMXAzbn.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%207-eB6CrQzZwOgyXMhTljBMxFB8Asty3Z.jpg",
   },
   {
     icon: Receipt,
@@ -28,7 +28,7 @@ const services = [
     description:
       "Escolha da melhor tributacao, entrega de obrigacoes acessorias e calculo de tributos.",
     link: "/redirect-servico-fiscal",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%204-QaTPX2wygoj0rTzMH0EMvqoBDhbees.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%206-WDrJICw0KZo38gogonVEDuKZEVRv3P.jpg",
   },
   {
     icon: Users,
@@ -44,7 +44,7 @@ const services = [
     description:
       "Registros, contratos sociais, regularizacao e planejamento para inicio de atividades.",
     link: "/redirect-servico-societario",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%206-WDrJICw0KZo38gogonVEDuKZEVRv3P.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%204-QaTPX2wygoj0rTzMH0EMvqoBDhbees.jpg",
   },
   {
     icon: Wallet,
@@ -52,7 +52,7 @@ const services = [
     description:
       "Contas a pagar e receber, conciliacao bancaria, notas fiscais e relatorios financeiros.",
     link: "/redirect-servico-bpo",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%207-eB6CrQzZwOgyXMhTljBMxFB8Asty3Z.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%203-mblVnQqwtt7eecTwpQF83lnjMXAzbn.jpg",
   },
 ]
 
