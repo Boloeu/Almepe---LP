@@ -1,88 +1,126 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Instagram } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="flex flex-col items-center md:items-start">
-            <div className="w-32 h-32 mb-4">
+    <footer className="bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-7xl px-4 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Logo / Bio */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/almepeLogo.png-X2WDqDqKkYOhqO91Mfp6ETpArEDnH9.png"
+                src="/images/almepe-colorido-icone.png"
                 alt="Almepe Logo"
-                width={128}
-                height={128}
-                className="w-full h-full object-contain"
+                width={44}
+                height={44}
+                className="object-contain"
               />
+              <span className="font-mono text-lg font-bold">Almepe</span>
             </div>
-            <p className="text-sm text-gray-400 text-center md:text-left">Evite dores de cabeça. Vem pra Almepe!</p>
+            <p className="text-sm text-primary-foreground/60 leading-relaxed">
+              Contabilidade digital que entrega resultados. Mais de 20 anos
+              transformando a gestao de empresas em Sao Paulo.
+            </p>
+            <div className="flex items-center gap-3 mt-5">
+              <Link
+                href="https://www.instagram.com/almepe_contabilidade/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground transition-colors"
+              >
+                <Instagram className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
+          {/* Links rapidos */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-4">
+              Links Rapidos
+            </h3>
+            <ul className="flex flex-col gap-3">
               <li>
-                <Link href="/privacidade" className="text-gray-400 hover:text-white transition-colors">
-                  Política de Privacidade
-                </Link>
+                <a href="#inicio" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                  Inicio
+                </a>
               </li>
               <li>
-                <Link href="/termos" className="text-gray-400 hover:text-white transition-colors">
-                  Termos de Uso
-                </Link>
+                <a href="#servicos" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                  Servicos
+                </a>
               </li>
               <li>
-                <Link href="/carreiras" className="text-gray-400 hover:text-white transition-colors">
-                  Trabalhe Conosco
+                <a href="#metodologia" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                  Metodologia
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <Link href="/privacidade" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                  Politica de Privacidade
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Contato */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Serviços</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/#services" className="text-gray-400 hover:text-white transition-colors">
-                  Consultoria Financeira
-                </Link>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-4">
+              Contato
+            </h3>
+            <ul className="flex flex-col gap-3">
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-highlight flex-shrink-0" />
+                <span className="text-sm text-primary-foreground/60">(11) 5670-0760</span>
               </li>
-              <li>
-                <Link href="/#services" className="text-gray-400 hover:text-white transition-colors">
-                  Direito Tributário
-                </Link>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-highlight flex-shrink-0" />
+                <span className="text-sm text-primary-foreground/60">Almepe@almepe.com.br</span>
               </li>
-              <li>
-                <Link href="/#services" className="text-gray-400 hover:text-white transition-colors">
-                  Planejamento Estratégico
-                </Link>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-highlight flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-primary-foreground/60">Sao Paulo, SP</span>
               </li>
             </ul>
           </div>
 
+          {/* Selos */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contato</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-gray-400">
-                <Phone className="w-4 h-4" />
-                <span>(11) 5670-0760</span>
-              </li>
-              <li className="flex items-center gap-2 text-gray-400">
-                <Mail className="w-4 h-4" />
-                <span>Almepe@almepe.com.br</span>
-              </li>
-              <li className="flex items-center gap-2 text-gray-400">
-                <MapPin className="w-4 h-4" />
-                <span>São Paulo, SP</span>
-              </li>
-            </ul>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-4">
+              Certificacoes
+            </h3>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2 rounded-lg bg-primary-foreground/5 p-3">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-highlight/20 text-highlight text-xs font-bold">
+                  CRC
+                </div>
+                <span className="text-xs text-primary-foreground/60">
+                  Registro CRC Ativo
+                </span>
+              </div>
+              <div className="flex items-center gap-2 rounded-lg bg-primary-foreground/5 p-3">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-highlight/20 text-highlight text-xs font-bold">
+                  ISO
+                </div>
+                <span className="text-xs text-primary-foreground/60">
+                  Processos Padronizados
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-          <p>© 2024 Almepe. Todos os direitos reservados.</p>
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center">
+          <p className="text-xs text-primary-foreground/40">
+            {new Date().getFullYear()} Almepe Contabilidade. Todos os direitos
+            reservados.
+          </p>
         </div>
       </div>
     </footer>

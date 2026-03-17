@@ -1,179 +1,176 @@
 "use client"
 
-import { useState } from "react"
+import { useInView } from "@/hooks/use-in-view"
+import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
+import {
+  BookOpen,
+  Receipt,
+  Users,
+  Landmark,
+  Wallet,
+  ArrowRight,
+} from "lucide-react"
 
-const contabilidadeDigitalServices = [
+const services = [
   {
-    title: "Gestão Contábil",
+    icon: BookOpen,
+    title: "Gestao Contabil",
     description:
-      "Nessa área, a Almepe busca não somente a contabilização, mas também apresentar as principais demonstrações contábeis para auxiliar sua empresa nas tomadas de decisões",
-    items: [
-      "Escrituração contábil",
-      "Elaboração das demonstrações contábeis",
-      "Relatórios e métricas para acompanhamento de indicadores",
-      "Declarações e obrigações periódicas",
-    ],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&h=400&auto=format&fit=crop",
+      "Escrituracao, demonstracoes contabeis e relatorios para auxiliar nas tomadas de decisoes.",
     link: "/redirect-servico-contabil",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%207-eB6CrQzZwOgyXMhTljBMxFB8Asty3Z.jpg",
   },
   {
-    title: "Gestão Fiscal",
+    icon: Receipt,
+    title: "Gestao Fiscal",
     description:
-      "Nessa área, a Almepe escolhe e elabora a melhor forma de tributação para sua empresa, reduzindo custos e protegendo sua empresa de possíveis autos de infrações.",
-    items: [
-      "Elaboração, análise e entrega das obrigações acessórias fiscais",
-      "Orientação e suporte",
-      "Relatórios e métricas para acompanhamento de indicadores",
-      "Cálculos dos tributos",
-      "Escolha da melhor forma de tributação",
-    ],
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&h=400&auto=format&fit=crop",
+      "Escolha da melhor tributacao, entrega de obrigacoes acessorias e calculo de tributos.",
     link: "/redirect-servico-fiscal",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%206-WDrJICw0KZo38gogonVEDuKZEVRv3P.jpg",
   },
   {
-    title: "Gestão de Pessoas",
+    icon: Users,
+    title: "Gestao de Pessoas",
     description:
-      "Uma das áreas de maior importância, o departamento pessoal da Almepe cuida para que todas as obrigações e necessidades dos clientes sejam atendidas.",
-    items: [
-      "Obrigações acessórias",
-      "Cálculo de folha e dos tributos",
-      "Relatórios e métricas para acompanhamento",
-      "Rotinas de admissão, demissão, férias e afastamentos",
-    ],
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&h=400&auto=format&fit=crop",
+      "Folha de pagamento, admissoes, demissoes, ferias e todas as obrigacoes trabalhistas.",
     link: "/redirect-servico-pessoal",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%205-rRKX977QrZ63hwbELpEcBtwIG8hwWs.jpg",
   },
   {
-    title: "Gestão Societária",
+    icon: Landmark,
+    title: "Gestao Societaria",
     description:
-      "Na área societária a Almepe estuda e aconselha quanto as melhores práticas e formas de se consolidar o seu negócio, sendo essa área responsável por:",
-    items: [
-      "Registros junto a órgãos públicos",
-      "Elaboração de contratos e estatutos sociais",
-      "Regularização do negócio frente às exigências das esferas Municipal, Estadual e Federal, evitando pagamento de multas desnecessárias",
-      "Orientação e Planejamento para o início das atividades",
-      "Contratos de acordo entre sócios",
-    ],
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&h=400&auto=format&fit=crop",
+      "Registros, contratos sociais, regularizacao e planejamento para inicio de atividades.",
     link: "/redirect-servico-societario",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%204-QaTPX2wygoj0rTzMH0EMvqoBDhbees.jpg",
+  },
+  {
+    icon: Wallet,
+    title: "BPO Financeiro",
+    description:
+      "Contas a pagar e receber, conciliacao bancaria, notas fiscais e relatorios financeiros.",
+    link: "/redirect-servico-bpo",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%203-mblVnQqwtt7eecTwpQF83lnjMXAzbn.jpg",
   },
 ]
 
-const financeiroDigitalService = {
-  title: "Gestão Financeira (BPO)",
-  description:
-    "A Almepe organiza e cuida da gestão das contas a pagar e a receber da sua empresa, para que você possa se concentrar em áreas estratégicas. Com a terceirização do seu financeiro, vocês receberão informações precisas e estratégicas para gestão da sua empresa, além de obter uma grande economia nos custos.",
-  items: [
-    "Registro e controle de contas a receber e a pagar",
-    "Emissão e envio de notas fiscais e boletos",
-    "Conciliação Bancária Completa",
-    "Agendamento de seus pagamentos no Internet Banking",
-    "Envio de documentação para o seu contador",
-    "Envio de Relatórios Financeiros",
-    "Consultoria em Gestão",
-  ],
-  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&h=400&auto=format&fit=crop",
-  link: "/redirect-servico-bpo",
-}
-
 export default function ServicesSection() {
-  const [currentService, setCurrentService] = useState(0)
-  const [currentCategory, setCurrentCategory] = useState("contabilidade")
-
-  const nextService = () => {
-    if (currentCategory === "contabilidade") {
-      setCurrentService((prev) => (prev + 1) % contabilidadeDigitalServices.length)
-    }
-  }
-
-  const prevService = () => {
-    if (currentCategory === "contabilidade") {
-      setCurrentService(
-        (prev) => (prev - 1 + contabilidadeDigitalServices.length) % contabilidadeDigitalServices.length,
-      )
-    }
-  }
-
-  const toggleCategory = () => {
-    setCurrentCategory((prev) => (prev === "contabilidade" ? "financeiro" : "contabilidade"))
-    setCurrentService(0)
-  }
-
-  const currentServiceData =
-    currentCategory === "contabilidade" ? contabilidadeDigitalServices[currentService] : financeiroDigitalService
+  const { ref, isInView } = useInView(0.05)
 
   return (
-    <section id="services" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-blue-900 mb-8">Nossos Serviços</h2>
-        <div className="flex justify-center mb-8">
-          <Button
-            onClick={() => setCurrentCategory("contabilidade")}
-            className={`mx-2 ${currentCategory === "contabilidade" ? "bg-blue-900" : "bg-gray-300 text-gray-700"}`}
-          >
-            Contabilidade Digital
-          </Button>
-          <Button
-            onClick={() => setCurrentCategory("financeiro")}
-            className={`mx-2 ${currentCategory === "financeiro" ? "bg-blue-900" : "bg-gray-300 text-gray-700"}`}
-          >
-            Financeiro Digital
-          </Button>
+    <section id="servicos" ref={ref} className="py-0 bg-secondary">
+      <div className="mx-auto max-w-7xl px-4 py-20">
+        {/* Section header */}
+        <div className="text-center mb-14">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
+            Nossos Servicos
+          </span>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
+            Solucoes completas para sua empresa
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Da contabilidade ao financeiro, cuidamos de tudo para que voce foque
+            no crescimento do seu negocio.
+          </p>
         </div>
-        <div className="relative">
-          <div className="overflow-hidden">
-            <div className="flex flex-col md:flex-row bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div className="md:w-1/2">
-                <div className="relative h-64 md:h-full w-full">
-                  <Image
-                    src={currentServiceData.image || "/placeholder.svg"}
-                    alt={currentServiceData.title}
-                    fill
-                    className="object-cover"
+      </div>
+
+      {/* Horizontal row of cards with diagonal dividers - full width */}
+      <div className="relative flex flex-col lg:flex-row lg:min-h-[70vh]">
+        {services.map((service, i) => (
+          <div
+            key={service.title}
+            className={`relative flex-1 transition-all duration-500 ${
+              isInView ? "animate-fade-in-up" : "opacity-0"
+            }`}
+            style={{ animationDelay: `${i * 80}ms` }}
+          >
+            {/* Diagonal divider -- between cards on large screens */}
+            {i > 0 && (
+              <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-px z-20">
+                <svg
+                  className="absolute -left-3 top-0 h-full w-6"
+                  viewBox="0 0 24 100"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1="18"
+                    y1="0"
+                    x2="6"
+                    y2="100"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    vectorEffect="non-scaling-stroke"
                   />
-                </div>
+                </svg>
               </div>
-              <div className="md:w-1/2 p-6">
-                <h3 className="text-2xl font-semibold text-blue-900 mb-4">{currentServiceData.title}</h3>
-                <p className="text-gray-600 mb-4">{currentServiceData.description}</p>
-                <ul className="list-disc list-inside text-gray-600 mb-4">
-                  {currentServiceData.items.map((item, index) => (
-                    <li key={index} className="mb-1">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href={currentServiceData.link}>
-                  <Button className="w-full bg-blue-900 text-white hover:bg-blue-800">Saiba Mais</Button>
-                </Link>
+            )}
+
+            {/* Horizontal divider on mobile */}
+            {i > 0 && (
+              <div className="lg:hidden h-px bg-border" />
+            )}
+
+            {/* Card with background image */}
+            <div className="group relative h-full min-h-[300px] lg:min-h-0 flex flex-col justify-end overflow-hidden">
+              {/* Background image */}
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                priority={i < 3}
+              />
+              
+              {/* Blur layer */}
+              <div className="absolute inset-0 backdrop-blur-[2px]" />
+              
+              {/* Dark gradient overlay for text legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-500/95 via-navy-500/70 to-navy-500/40" />
+
+              {/* Content with intense backdrop blur */}
+              <div className="relative z-10 p-6 lg:p-8">
+                <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-5 border border-white/10">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-white/20 text-white group-hover:bg-highlight group-hover:text-white transition-colors duration-300 mb-4">
+                    <service.icon className="h-6 w-6" />
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-white/80 leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+
+                  <Link
+                    href={service.link}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-highlight hover:text-white transition-colors"
+                  >
+                    Saiba mais
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          {currentCategory === "contabilidade" && (
-            <>
-              <div className="flex justify-center mt-4">
-                <span className="text-sm text-gray-500">
-                  {currentService + 1} de {contabilidadeDigitalServices.length}
-                </span>
-              </div>
-              <button
-                onClick={prevService}
-                className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg z-10"
-              >
-                <ChevronLeft className="w-6 h-6 text-blue-900" />
-              </button>
-              <button
-                onClick={nextService}
-                className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg z-10"
-              >
-                <ChevronRight className="w-6 h-6 text-blue-900" />
-              </button>
-            </>
-          )}
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div className="mx-auto max-w-7xl px-4 py-14">
+        <div className="text-center">
+          <Link href="/redirect-fale-conosco">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-accent font-semibold px-8"
+            >
+              Solicitar Proposta
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
