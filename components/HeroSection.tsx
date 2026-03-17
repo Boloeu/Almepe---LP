@@ -17,8 +17,6 @@ import {
 } from "lucide-react"
 
 const heroImages = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%201-9e5oIQdEAgkZE6fsm7jLUBDLg1cfCd.jpg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%202-W1aSq6jaQ0Csg0Wc4LfZTb42h1KgV7.jpg",
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%203-mblVnQqwtt7eecTwpQF83lnjMXAzbn.jpg",
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%204-QaTPX2wygoj0rTzMH0EMvqoBDhbees.jpg",
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%205-rRKX977QrZ63hwbELpEcBtwIG8hwWs.jpg",
@@ -111,8 +109,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Gestao contabil, fiscal, de pessoas e financeira com atendimento
-              agil, seguro e eficiente. Mais de 500 empresas confiam na Almepe.
+              Gestão contábil, fiscal, de pessoas e financeira com atendimento
+              ágil, seguro e eficiente. Mais de 500 empresas confiam na Almepe.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
@@ -129,9 +127,9 @@ export default function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="font-semibold px-8 text-base border-white/30 text-white hover:bg-white/10"
+                  className="font-semibold px-8 text-base border-white/30 bg-white/10 text-white hover:bg-white/20"
                 >
-                  Conhecer Servicos
+                  Conhecer Serviços
                 </Button>
               </a>
             </div>
