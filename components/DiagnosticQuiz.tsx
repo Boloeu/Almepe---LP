@@ -10,28 +10,28 @@ const steps = [
   {
     question: "Qual o porte da sua empresa?",
     options: [
-      { label: "MEI", value: "mei", savings: "ate R$ 5.000/ano" },
-      { label: "Microempresa (ME)", value: "me", savings: "ate R$ 25.000/ano" },
-      { label: "Empresa de Pequeno Porte (EPP)", value: "epp", savings: "ate R$ 80.000/ano" },
-      { label: "Media / Grande Empresa", value: "media-grande", savings: "ate R$ 250.000/ano" },
+      { label: "MEI", value: "mei", savings: "até R$ 5.000/ano" },
+      { label: "Microempresa (ME)", value: "me", savings: "até R$ 25.000/ano" },
+      { label: "Empresa de Pequeno Porte (EPP)", value: "epp", savings: "até R$ 80.000/ano" },
+      { label: "Média / Grande Empresa", value: "media-grande", savings: "até R$ 250.000/ano" },
     ],
   },
   {
     question: "Qual sua principal dor hoje?",
     options: [
-      { label: "Pago muitos impostos", value: "impostos", service: "Planejamento Tributario" },
-      { label: "Nao tenho controle financeiro", value: "financeiro", service: "BPO Financeiro" },
-      { label: "Preciso abrir ou regularizar empresa", value: "abertura", service: "Assessoria Societaria" },
-      { label: "Minha contabilidade e lenta", value: "lentidao", service: "Contabilidade Consultiva" },
+      { label: "Pago muitos impostos", value: "impostos", service: "Planejamento Tributário" },
+      { label: "Não tenho controle financeiro", value: "financeiro", service: "BPO Financeiro" },
+      { label: "Preciso abrir ou regularizar empresa", value: "abertura", service: "Assessoria Societária" },
+      { label: "Minha contabilidade é lenta", value: "lentidao", service: "Contabilidade Consultiva" },
     ],
   },
   {
-    question: "Voce ja possui contabilidade?",
+    question: "Você já possui contabilidade?",
     options: [
       { label: "Sim, mas estou insatisfeito", value: "insatisfeito", urgency: "alta" },
-      { label: "Sim, mas quero uma segunda opiniao", value: "segunda-opiniao", urgency: "media" },
-      { label: "Nao, preciso de uma", value: "sem-contabilidade", urgency: "alta" },
-      { label: "Estou comecando agora", value: "iniciante", urgency: "media" },
+      { label: "Sim, mas quero uma segunda opinião", value: "segunda-opiniao", urgency: "média" },
+      { label: "Não, preciso de uma", value: "sem-contabilidade", urgency: "alta" },
+      { label: "Estou começando agora", value: "iniciante", urgency: "média" },
     ],
   },
 ]
@@ -108,13 +108,13 @@ export default function DiagnosticQuiz() {
           }`}
         >
           <span className="inline-block px-3 py-1 rounded-full bg-highlight/10 text-highlight text-xs font-semibold uppercase tracking-wider">
-            Diagnostico Gratuito
+            Diagnóstico Gratuito
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground text-balance">
             Descubra como podemos ajudar sua empresa
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Responda 3 perguntas rapidas e receba uma analise personalizada.
+            Responda 3 perguntas rápidas e receba uma análise personalizada.
           </p>
         </div>
 
@@ -191,7 +191,7 @@ export default function DiagnosticQuiz() {
                   disabled={answers[currentStep] === undefined}
                   className="bg-primary text-primary-foreground hover:bg-accent font-semibold"
                 >
-                  {currentStep < steps.length - 1 ? "Proximo" : "Ver Resultado"}
+                  {currentStep < steps.length - 1 ? "Próximo" : "Ver Resultado"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -202,7 +202,7 @@ export default function DiagnosticQuiz() {
               <div className="text-center mb-6">
                 <CheckCircle2 className="h-14 w-14 text-green-500 mx-auto mb-3" />
                 <h3 className="text-2xl font-bold text-foreground">
-                  Diagnostico Concluido!
+                  Diagnóstico Concluído!
                 </h3>
               </div>
 
@@ -223,7 +223,7 @@ export default function DiagnosticQuiz() {
                       <p className="text-muted-foreground">
                         Como <span className="font-semibold text-foreground">{diagnostic.companySize}</span>, 
                         sua empresa pode economizar <span className="font-semibold text-highlight">{diagnostic.savings}</span> em 
-                        impostos com planejamento tributario adequado.
+                        impostos com planejamento tributário adequado.
                       </p>
                     </div>
                   </div>
@@ -233,10 +233,10 @@ export default function DiagnosticQuiz() {
                       <Shield className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Servico Recomendado</p>
+                      <p className="font-medium text-foreground">Serviço Recomendado</p>
                       <p className="text-muted-foreground">
                         Baseado na sua dor principal (<span className="font-semibold text-foreground">{diagnostic.mainPain.toLowerCase()}</span>), 
-                        recomendamos nosso servico de <span className="font-semibold text-primary">{diagnostic.recommendedService}</span>.
+                        recomendamos nosso serviço de <span className="font-semibold text-primary">{diagnostic.recommendedService}</span>.
                       </p>
                     </div>
                   </div>
@@ -248,13 +248,13 @@ export default function DiagnosticQuiz() {
                     <div>
                       <p className="font-medium text-foreground">Prioridade de Atendimento</p>
                       <p className="text-muted-foreground">
-                        Sua situacao atual ({diagnostic.situation.toLowerCase()}) indica 
+                        Sua situação atual ({diagnostic.situation.toLowerCase()}) indica 
                         <span className={`font-semibold ${diagnostic.urgency === 'alta' ? 'text-highlight' : 'text-amber-500'}`}>
-                          {diagnostic.urgency === 'alta' ? ' prioridade alta' : ' prioridade media'}
+                          {diagnostic.urgency === 'alta' ? ' prioridade alta' : ' prioridade média'}
                         </span>. 
                         {diagnostic.urgency === 'alta' 
                           ? ' Recomendamos agendar uma consultoria o quanto antes.'
-                          : ' Um de nossos especialistas pode esclarecer suas duvidas.'}
+                          : ' Um de nossos especialistas pode esclarecer suas dúvidas.'}
                       </p>
                     </div>
                   </div>
@@ -265,9 +265,9 @@ export default function DiagnosticQuiz() {
               <div className="bg-primary/5 rounded-xl p-5 mb-6 border border-primary/20">
                 <p className="text-sm text-foreground leading-relaxed">
                   <span className="font-semibold">A Almepe</span> possui mais de <span className="font-semibold">20 anos</span> de 
-                  experiencia em <span className="font-semibold">{diagnostic.recommendedService}</span> para empresas do seu porte. 
-                  Nossa equipe de especialistas esta pronta para criar um plano personalizado que pode resultar em economia 
-                  de <span className="font-semibold text-highlight">{diagnostic.savings}</span> para o seu negocio.
+                  experiência em <span className="font-semibold">{diagnostic.recommendedService}</span> para empresas do seu porte. 
+                  Nossa equipe de especialistas está pronta para criar um plano personalizado que pode resultar em economia 
+                  de <span className="font-semibold text-highlight">{diagnostic.savings}</span> para o seu negócio.
                 </p>
               </div>
 
@@ -286,7 +286,7 @@ export default function DiagnosticQuiz() {
                   onClick={reset}
                   className="block mx-auto text-sm text-muted-foreground hover:text-foreground underline"
                 >
-                  Refazer diagnostico
+                  Refazer diagnóstico
                 </button>
               </div>
             </div>

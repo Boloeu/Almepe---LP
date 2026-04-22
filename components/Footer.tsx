@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
               Contabilidade digital que entrega resultados. Mais de 20 anos
-              transformando a gestao de empresas em Sao Paulo.
+              transformando a gestão de empresas em São Paulo.
             </p>
             <div className="flex items-center gap-3 mt-5">
               <Link
@@ -38,17 +38,17 @@ export default function Footer() {
           {/* Links rapidos */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider mb-4">
-              Links Rapidos
+              Links Rápidos
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
                 <a href="#inicio" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-                  Inicio
+                  Início
                 </a>
               </li>
               <li>
                 <a href="#servicos" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-                  Servicos
+                  Serviços
                 </a>
               </li>
               <li>
@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/privacidade" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-                  Politica de Privacidade
+                  Política de Privacidade
                 </Link>
               </li>
             </ul>
@@ -85,7 +85,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-highlight flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-primary-foreground/60">Sao Paulo, SP</span>
+                <span className="text-sm text-primary-foreground/60">São Paulo, SP</span>
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@ export default function Footer() {
           {/* Selos */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider mb-4">
-              Certificacoes
+              Certificações
             </h3>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 rounded-lg bg-primary-foreground/5 p-3">

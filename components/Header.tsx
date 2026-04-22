@@ -8,8 +8,8 @@ import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Servicos", href: "#servicos" },
+  { label: "Início", href: "#inicio" },
+  { label: "Serviços", href: "#servicos" },
   { label: "Metodologia", href: "#metodologia" },
   { label: "FAQ", href: "#faq" },
 ]

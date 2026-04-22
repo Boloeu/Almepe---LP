@@ -97,10 +97,10 @@ export default function LeadPopup() {
             </div>
 
             <h3 className="text-xl font-bold text-foreground mb-2">
-              Diagnostico Gratuito
+              Diagnóstico Gratuito
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Descubra como economizar nos impostos e otimizar a gestao da sua
+              Descubra como economizar nos impostos e otimizar a gestão da sua
               empresa. Fale com um especialista sem compromisso.
             </p>
 
@@ -109,7 +109,7 @@ export default function LeadPopup() {
                 size="lg"
                 className="w-full bg-primary text-primary-foreground hover:bg-accent font-semibold"
               >
-                Quero meu Diagnostico
+                Quero meu Diagnóstico
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -118,7 +118,7 @@ export default function LeadPopup() {
               onClick={close}
               className="mt-3 text-xs text-muted-foreground hover:text-foreground underline"
             >
-              Agora nao, obrigado
+              Agora não, obrigado
             </button>
           </div>
         </div>

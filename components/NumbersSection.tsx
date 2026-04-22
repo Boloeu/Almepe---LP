@@ -6,8 +6,8 @@ import { Building2, Users, TrendingUp, Award } from "lucide-react"
 
 const stats = [
   { icon: Building2, value: 500, suffix: "+", label: "Empresas Atendidas" },
-  { icon: Users, value: 20, suffix: "+", label: "Anos de Experiencia" },
-  { icon: TrendingUp, value: 98, suffix: "%", label: "Satisfacao dos Clientes" },
+  { icon: Users, value: 20, suffix: "+", label: "Anos de Experiência" },
+  { icon: TrendingUp, value: 98, suffix: "%", label: "Satisfação dos Clientes" },
   { icon: Award, value: 30, suffix: "+", label: "Especialistas" },
 ]
 
