@@ -16,33 +16,33 @@ import {
 const services = [
   {
     icon: BookOpen,
-    title: "Gestao Contabil",
+    title: "Gestão Contábil",
     description:
-      "Escrituracao, demonstracoes contabeis e relatorios para auxiliar nas tomadas de decisoes.",
+      "Escrituração, demonstrações contábeis e relatórios para auxiliar nas tomadas de decisões.",
     link: "/redirect-servico-contabil",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%207-eB6CrQzZwOgyXMhTljBMxFB8Asty3Z.jpg",
   },
   {
     icon: Receipt,
-    title: "Gestao Fiscal",
+    title: "Gestão Fiscal",
     description:
-      "Escolha da melhor tributacao, entrega de obrigacoes acessorias e calculo de tributos.",
+      "Escolha da melhor tributação, entrega de obrigações acessórias e cálculo de tributos.",
     link: "/redirect-servico-fiscal",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%206-WDrJICw0KZo38gogonVEDuKZEVRv3P.jpg",
   },
   {
     icon: Users,
-    title: "Gestao de Pessoas",
+    title: "Gestão de Pessoas",
     description:
-      "Folha de pagamento, admissoes, demissoes, ferias e todas as obrigacoes trabalhistas.",
+      "Folha de pagamento, admissões, demissões, férias e todas as obrigações trabalhistas.",
     link: "/redirect-servico-pessoal",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/foto%205-rRKX977QrZ63hwbELpEcBtwIG8hwWs.jpg",
   },
   {
     icon: Landmark,
-    title: "Gestao Societaria",
+    title: "Gestão Societária",
     description:
-      "Registros, contratos sociais, regularizacao e planejamento para inicio de atividades.",
+      "Registros, contratos sociais, regularização e planejamento para início de atividades.",
     link: "/redirect-servico-societario",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%204-QaTPX2wygoj0rTzMH0EMvqoBDhbees.jpg",
   },
@@ -50,7 +50,7 @@ const services = [
     icon: Wallet,
     title: "BPO Financeiro",
     description:
-      "Contas a pagar e receber, conciliacao bancaria, notas fiscais e relatorios financeiros.",
+      "Contas a pagar e receber, conciliação bancária, notas fiscais e relatórios financeiros.",
     link: "/redirect-servico-bpo",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Foto%203-mblVnQqwtt7eecTwpQF83lnjMXAzbn.jpg",
   },
@@ -65,14 +65,14 @@ export default function ServicesSection() {
         {/* Section header */}
         <div className="text-center mb-14">
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
-            Nossos Servicos
+            Nossos Serviços
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
-            Solucoes completas para sua empresa
+            Soluções completas para sua empresa
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Da contabilidade ao financeiro, cuidamos de tudo para que voce foque
-            no crescimento do seu negocio.
+            Da contabilidade ao financeiro, cuidamos de tudo para que você foque
+            no crescimento do seu negócio.
           </p>
         </div>
       </div>

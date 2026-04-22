@@ -6,34 +6,34 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "Quais servicos a Almepe oferece?",
+    question: "Quais serviços a Almepe oferece?",
     answer:
-      "Oferecemos servicos completos de contabilidade digital incluindo gestao contabil, fiscal, de pessoas, societaria e BPO financeiro. Tudo para que sua empresa tenha suporte completo.",
+      "Oferecemos serviços completos de contabilidade digital incluindo gestão contábil, fiscal, de pessoas, societária e BPO financeiro. Tudo para que sua empresa tenha suporte completo.",
   },
   {
     question: "A Almepe atende empresas de qualquer porte?",
     answer:
-      "Sim! Atendemos desde MEIs e microempresas ate empresas de medio e grande porte. Nossas solucoes sao personalizadas de acordo com as necessidades de cada cliente.",
+      "Sim! Atendemos desde MEIs e microempresas até empresas de médio e grande porte. Nossas soluções são personalizadas de acordo com as necessidades de cada cliente.",
   },
   {
     question: "Como funciona a contabilidade digital?",
     answer:
-      "Com a contabilidade digital, todos os processos sao otimizados com tecnologia. Voce envia documentos de forma online, acompanha relatorios em tempo real e tem comunicacao agil com nossa equipe.",
+      "Com a contabilidade digital, todos os processos são otimizados com tecnologia. Você envia documentos de forma online, acompanha relatórios em tempo real e tem comunicação ágil com nossa equipe.",
   },
   {
     question: "Qual o diferencial da Almepe?",
     answer:
-      "Nosso diferencial esta na combinacao de experiencia tecnica com atendimento proximo e personalizado. Mais de 500 empresas confiam em nos, com 98% de satisfacao.",
+      "Nosso diferencial está na combinação de experiência técnica com atendimento próximo e personalizado. Mais de 500 empresas confiam em nós, com 98% de satisfação.",
   },
   {
     question: "Como posso solicitar uma proposta?",
     answer:
-      "Voce pode clicar no botao 'Fale Conosco' no topo da pagina ou realizar nosso diagnostico rapido. Um especialista entrara em contato via WhatsApp para entender suas necessidades.",
+      "Você pode clicar no botão 'Fale Conosco' no topo da página ou realizar nosso diagnóstico rápido. Um especialista entrará em contato via WhatsApp para entender suas necessidades.",
   },
   {
     question: "A Almepe pode me ajudar a reduzir impostos?",
     answer:
-      "Sim! Nossa equipe fiscal analisa o enquadramento tributario da sua empresa e propoe as melhores estrategias para reducao legal da carga tributaria.",
+      "Sim! Nossa equipe fiscal analisa o enquadramento tributário da sua empresa e propõe as melhores estratégias para redução legal da carga tributária.",
   },
 ]
 
@@ -93,7 +93,7 @@ export default function FAQSection() {
             Perguntas Frequentes
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Tire suas duvidas sobre nossos servicos de contabilidade digital.
+            Tire suas dúvidas sobre nossos serviços de contabilidade digital.
           </p>
         </div>
 

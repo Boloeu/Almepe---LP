@@ -7,30 +7,30 @@ import { Search, FileText, Settings, TrendingUp } from "lucide-react"
 const steps = [
   {
     icon: Search,
-    title: "Diagnostico",
+    title: "Diagnóstico",
     description:
-      "Analisamos a situacao atual da sua empresa para entender seus desafios e oportunidades.",
+      "Analisamos a situação atual da sua empresa para entender seus desafios e oportunidades.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop&q=80",
   },
   {
     icon: FileText,
     title: "Planejamento",
     description:
-      "Elaboramos um plano personalizado com as melhores estrategias fiscais e contabeis.",
+      "Elaboramos um plano personalizado com as melhores estratégias fiscais e contábeis.",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop&q=80",
   },
   {
     icon: Settings,
-    title: "Implementacao",
+    title: "Implementação",
     description:
-      "Colocamos tudo em pratica com processos ageis e tecnologia de ponta.",
+      "Colocamos tudo em prática com processos ágeis e tecnologia de ponta.",
     image: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=400&h=300&fit=crop&q=80",
   },
   {
     icon: TrendingUp,
     title: "Acompanhamento",
     description:
-      "Monitoramos resultados e ajustamos estrategias para maximizar seus resultados.",
+      "Monitoramos resultados e ajustamos estratégias para maximizar seus resultados.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&q=80",
   },
 ]
@@ -49,7 +49,7 @@ export default function MethodologySection() {
             Mais de 20 anos transformando a contabilidade das empresas
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Um processo claro e eficiente que gera resultados reais para o seu negocio.
+            Um processo claro e eficiente que gera resultados reais para o seu negócio.
           </p>
         </div>
 

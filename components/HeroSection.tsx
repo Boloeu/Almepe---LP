@@ -48,8 +48,8 @@ export default function HeroSection() {
 
   const checklistItems = [
     "Informe de Rendimentos",
-    "Comprovantes de despesas medicas",
-    "Documentos de imoveis e veiculos",
+    "Comprovantes de despesas médicas",
+    "Documentos de imóveis e veículos",
     "Informe de investimentos",
   ]
 
@@ -171,7 +171,7 @@ export default function HeroSection() {
                           Imposto de Renda 2026
                         </h3>
                         <p className="text-sm text-white/80">
-                          Declare com seguranca
+                          Declare com segurança
                         </p>
                       </div>
                     </div>
@@ -256,7 +256,7 @@ export default function HeroSection() {
                     </Button>
                   </Link>
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    Evite multas de ate 20% do imposto devido
+                    Evite multas de até 20% do imposto devido
                   </p>
                 </div>
               </div>
